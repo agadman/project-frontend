@@ -1,8 +1,9 @@
+import API_URL from './config';
 import './style.css'
 
 const menuDiv = document.getElementById('app');
 
-fetch('http://localhost:3000/api/menu') 
+fetch(`${API_URL}/menu`) 
   .then(response => response.json())
   .then(data => {
     data.forEach(item => {
