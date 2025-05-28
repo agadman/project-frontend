@@ -7,5 +7,22 @@
 </head>
 <body>
     <h1>Denna sida är bara för admin!</h1>
+     <button id="logoutBtn">Logga ut</button>
+    <section>
+        <h2>Lägg till</h2>
+        <form id="addForm">
+            <input type="text" id="name" placeholder="Namn">
+            <input type="text" id="description" placeholder="Beskrivning">
+            <input type="number" id="price" placeholder="Pris">
+            <input type="text" id="category" placeholder="starter, main, dessert">
+            <button type="submit">Lägg till</button>
+        </form>
+        <p id="form-message"></p>
+    </section>
+    <section>
+        <h2>Meny</h2>
+        <ul id="menuList"></ul>
+    </section>
+    <script type="module" src="/src/admin.js" defer></script>
   </body>
 </html>
