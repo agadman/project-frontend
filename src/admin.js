@@ -24,23 +24,33 @@ document.addEventListener("DOMContentLoaded", () => {
       const items = await res.json();
       menuList.innerHTML = "";
 
-      items.forEach((item) => {
-        const li = document.createElement("li");
-        li.innerHTML = `
-          <strong>${item.name}</strong> (${item.category}) - ${item.price} kr
-          <br>
-          ${item.description}
-          <button data-id="${item._id}">Ta bort</button>
-        `;
-        menuList.appendChild(li);
+     items.forEach((item) => {
+  const li = document.createElement("li");
+  li.classList.add("menu-item");
 
-        li.querySelector("button").addEventListener("click", async () => {
-          if (confirm(`Ta bort ${item.name}?`)) {
-            await deleteItem(item._id);
-            fetchMenu(); 
-          }
-        });
-      });
+  const textWrapper = document.createElement("div");
+  textWrapper.classList.add("menu-item-text");
+  textWrapper.innerHTML = `
+    <strong>${item.name}</strong> (${item.category}) - ${item.price} kr<br>
+    ${item.description}
+  `;
+
+  const deleteBtn = document.createElement("button");
+  deleteBtn.textContent = "Ta bort";
+  deleteBtn.classList.add("delete-btn");
+  deleteBtn.setAttribute("data-id", item._id);
+
+  deleteBtn.addEventListener("click", async () => {
+    if (confirm(`Ta bort ${item.name}?`)) {
+      await deleteItem(item._id);
+      fetchMenu();
+    }
+  });
+
+  li.appendChild(textWrapper);
+  li.appendChild(deleteBtn);
+  menuList.appendChild(li);
+});
     } catch (err) {
       console.error("Fel vid hämtning av meny:", err);
     }

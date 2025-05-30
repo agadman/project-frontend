@@ -20,9 +20,9 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
       if (res.ok) {
         const token = result.token;
         sessionStorage.setItem('jwt', token); 
-        window.location.href = '/admin.html'; // Omdirigera till admin sidan
+        window.location.href = '/admin.html'; // Omdirigerar till admin sidan
       } else {
-        document.getElementById('message').textContent = result.error || 'Login failed';
+        document.getElementById('message').textContent = result.error || 'Fyll i användarnamn/lösenord';
       }
     } catch (err) {
       console.error(err);

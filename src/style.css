@@ -7,8 +7,19 @@
 }
 
 body {
-  font-family: Almarai, sans-serif;
+  font-family: 'Almarai', sans-serif;
+  font-weight: 300;
   color: #333;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: center;
+  padding-top: 2rem;
 }
 
 .site-header {
@@ -23,11 +34,222 @@ body {
   justify-content: center;
 }
 
+.site-footer {
+  border-top: 2px solid #D82B6D;
+  padding: 2rem 1rem;
+  text-align: center;
+  background-color: #fff;
+  margin-top: 3rem;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 0.95rem;
+}
+
+.footer-content p {
+  margin: 0.5rem 0;
+  color: #333;
+}
+
+.footer-nav {
+  margin: 1rem 0;
+}
+
+.footer-nav a {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: #37CCC8;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+  color: #2FB3AF;
+}
+
+address {
+  font-style: normal;
+  color: #555;
+  line-height: 1.6;
+  margin-top: 1rem;
+}
+
 .restaurant-name {
   font-family: 'Alex Brush', cursive;
   text-align: center;
   font-size: 3.8rem;
   color: #5a5a5a;
+}
+
+h2 {
+  font-size: 1.8rem;
+}
+
+.menu-category {
+  margin: 2rem 0;
+
+}
+
+h2 {
+  border-bottom: 2px solid #37CCC8;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  width: 100%;
+}
+
+.menu-item {
+  text-align: center;
+  padding: 1rem;
+}
+
+.login-text {
+  text-align: center;
+  padding: 1rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+input[type="username"],
+input[type="password"] {
+  width: 250px;
+  border: none;
+  border-bottom: 2px solid #555;
+  background: transparent;
+  padding: 0.5rem 0;
+  font-size: 1rem;
+  outline: none;
+  text-align: left;
+}
+
+input::placeholder {
+  color: #999;
+}
+
+button[type="submit"] {
+  background-color: #D82B6D;
+  color: white;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+button[type="submit"]:hover {
+  background-color: #c31c5e;
+}
+
+.admin-page {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  text-align: center;
+}
+
+#logoutBtn {
+  background-color: #37CCC8;
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+}
+
+#logoutBtn:hover {
+  background-color: #2FB3AF;
+}
+
+form input[type="text"],
+form input[type="number"] {
+  width: 100%;
+  max-width: 400px;
+  border: none;
+  border-bottom: 2px solid #555;
+  background: transparent;
+  padding: 0.5rem 0;
+  font-size: 1rem;
+  outline: none;
+  text-align: left;
+}
+
+#form-message {
+  margin-top: 1rem;
+  color: #D82B6D;
+}
+
+ul#menuList {
+  list-style: none;
+  padding: 0;
+  margin: 2rem auto;
+  max-width: 700px;
+}
+
+ul#menuList li.menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+  background-color: #fafafa;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.menu-item-text {
+  flex: 1;
+  font-size: 1rem;
+}
+
+.delete-btn {
+  background-color: #D82B6D;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+  background-color: #c31c5e;
+}
+
+.about-article {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  text-align: left;
+}
+
+.restaurant-description {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #555;
+  margin-top: 1rem;
+}
+
+.about-image {
+  width: 100%;
+  height: 300px; 
+  object-fit: cover;
+  display: block;
+  margin-top: 2rem;
+  border-radius: 8px;
 }
 
 @media (max-width: 600px) {
