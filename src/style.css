@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Almarai:wght@300;400;700&display=swap');
 
+/**** GLOBAL STYLING ****/
 * {
   box-sizing: border-box;
   margin: 0;
@@ -9,9 +10,10 @@
 body {
   font-family: 'Almarai', sans-serif;
   font-weight: 300;
-  color: #333;
+  color: #2E2E2E;
   font-size: 1rem;
   line-height: 1.6;
+  background-color: #F9F9F9;
 }
 
 .app {
@@ -22,31 +24,75 @@ body {
   padding-top: 2rem;
 }
 
-.site-header {
-  background-color: #fff;
-  border-bottom: 4px solid #D82B6D;
-  padding: 2rem;
+h2 {
+  font-size: 1.8rem;
+  border-bottom: 2px solid #EFC07A;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  width: 100%;
+  color: #2C3E50;
 }
 
-.header-content {
+/**** HEADER ****/
+.site-header {
+  position: relative;
+  height: 100vh;
+  min-height: 300px;
+  background-image: url('../public/restaurant_image.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+.site-header.small-header {
+  height: 40vh; 
+}
+
+.header-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* mörkläggning */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.restaurant-name {
+  font-family: 'Alex Brush', cursive;
+  font-size: 5rem;
+  color: #fff;
+  z-index: 1;
+  text-align: center;
+  padding: 0 1rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+}
+
+.site-header.small-header .restaurant-name {
+  font-size: 3rem;
+}
+
+/* FOOTER */
 .site-footer {
-  border-top: 2px solid #D82B6D;
+  border-top: 2px solid #EFC07A;
   padding: 2rem 1rem;
   text-align: center;
-  background-color: #fff;
+  background-color: #ffffff;
   margin-top: 3rem;
   font-family: 'Helvetica Neue', sans-serif;
   font-size: 0.95rem;
+  color: #2E2E2E;
 }
 
 .footer-content p {
   margin: 0.5rem 0;
-  color: #333;
 }
 
 .footer-nav {
@@ -56,13 +102,13 @@ body {
 .footer-nav a {
   margin: 0 1rem;
   text-decoration: none;
-  color: #37CCC8;
+  color: #2980B9;
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
 .footer-nav a:hover {
-  color: #2FB3AF;
+  color: #1F618D;
 }
 
 address {
@@ -72,28 +118,15 @@ address {
   margin-top: 1rem;
 }
 
-.restaurant-name {
-  font-family: 'Alex Brush', cursive;
-  text-align: center;
-  font-size: 3.8rem;
-  color: #5a5a5a;
+address a {
+  color: #555;
+  text-decoration: none;
 }
 
-h2 {
-  font-size: 1.8rem;
-}
+/**** MENY/INDEX ****/
 
 .menu-category {
   margin: 2rem 0;
-
-}
-
-h2 {
-  border-bottom: 2px solid #37CCC8;
-  padding-bottom: 0.5rem;
-  margin-bottom: 1rem;
-  text-align: center;
-  width: 100%;
 }
 
 .menu-item {
@@ -101,6 +134,7 @@ h2 {
   padding: 1rem;
 }
 
+/**** LOGIN ****/
 .login-text {
   text-align: center;
   padding: 1rem;
@@ -115,8 +149,11 @@ form {
 }
 
 input[type="username"],
-input[type="password"] {
+input[type="password"],
+form input[type="text"],
+form input[type="number"] {
   width: 250px;
+  max-width: 400px;
   border: none;
   border-bottom: 2px solid #555;
   background: transparent;
@@ -131,7 +168,7 @@ input::placeholder {
 }
 
 button[type="submit"] {
-  background-color: #D82B6D;
+  background-color: #2C3E50;
   color: white;
   padding: 0.75rem 2rem;
   border: none;
@@ -145,9 +182,10 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background-color: #c31c5e;
+  background-color: #1A252F;
 }
 
+/**** ADMIN ****/
 .admin-page {
   max-width: 800px;
   margin: 2rem auto;
@@ -156,7 +194,7 @@ button[type="submit"]:hover {
 }
 
 #logoutBtn {
-  background-color: #37CCC8;
+  background-color: #2980B9;
   color: white;
   padding: 1rem 2rem;
   border: none;
@@ -169,25 +207,12 @@ button[type="submit"]:hover {
 }
 
 #logoutBtn:hover {
-  background-color: #2FB3AF;
-}
-
-form input[type="text"],
-form input[type="number"] {
-  width: 100%;
-  max-width: 400px;
-  border: none;
-  border-bottom: 2px solid #555;
-  background: transparent;
-  padding: 0.5rem 0;
-  font-size: 1rem;
-  outline: none;
-  text-align: left;
+  background-color: #1F618D;
 }
 
 #form-message {
   margin-top: 1rem;
-  color: #D82B6D;
+  color: #C0392B;
 }
 
 ul#menuList {
@@ -204,9 +229,10 @@ ul#menuList li.menu-item {
   gap: 1rem;
   padding: 1rem;
   border-bottom: 1px solid #eee;
-  background-color: #fafafa;
+  background-color: #ffffff;
   border-radius: 8px;
   margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 .menu-item-text {
@@ -215,7 +241,7 @@ ul#menuList li.menu-item {
 }
 
 .delete-btn {
-  background-color: #D82B6D;
+  background-color: #C0392B;
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -226,9 +252,10 @@ ul#menuList li.menu-item {
 }
 
 .delete-btn:hover {
-  background-color: #c31c5e;
+  background-color: #A93226;
 }
 
+/**** OM OSS ****/
 .about-article {
   max-width: 800px;
   margin: 2rem auto;
@@ -255,5 +282,12 @@ ul#menuList li.menu-item {
 @media (max-width: 600px) {
   .restaurant-name {
     font-size: 2.4rem;
+  }
+
+  input[type="username"],
+  input[type="password"],
+  form input[type="text"],
+  form input[type="number"] {
+    width: 90%;
   }
 }
