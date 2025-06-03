@@ -290,4 +290,36 @@ ul#menuList li.menu-item {
   form input[type="number"] {
     width: 90%;
   }
+  
+  ul#menuList li.menu-item {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: left;
+  }
+
+  .delete-btn {
+    align-self: flex-end;
+    margin-top: 0.5rem;
+    width: fit-content;
+  }
+
+  .menu-item-text {
+    font-size: 0.95rem;
+  }
+
+  .delete-btn {
+  width: 100%;
+  text-align: center;
+}
+
+.footer-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 1rem 0;
+  }
+
+  .footer-nav a {
+    margin: 0;
+  }
 }
