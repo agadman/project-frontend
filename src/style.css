@@ -211,7 +211,7 @@ button[type="submit"]:hover {
 }
 
 #form-message {
-  margin-top: 1rem;
+  margin-bottom: 1rem;
   color: #C0392B;
 }
 
@@ -254,6 +254,55 @@ ul#menuList li.menu-item {
 .delete-btn:hover {
   background-color: #A93226;
 }
+.edit-btn {
+  background-color: #F39C12;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-left: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.edit-btn:hover {
+  background-color: #D68910;
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background-color: #fff9ed;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.edit-input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.save-btn, .cancel-btn {
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.save-btn {
+  background-color: #27AE60;
+  color: white;
+}
+
+.cancel-btn {
+  background-color: #95A5A6;
+  color: white;
+}
 
 /**** OM OSS ****/
 .about-article {
@@ -270,13 +319,24 @@ ul#menuList li.menu-item {
   margin-top: 1rem;
 }
 
-.about-image {
-  width: 100%;
-  height: 300px; 
-  object-fit: cover;
-  display: block;
-  margin-top: 2rem;
-  border-radius: 8px;
+.opening-hours h3 {
+  color: #2C3E50;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #EFC07A;
+  padding-bottom: 0.3rem;
+}
+
+.hours-list {
+  list-style: none;
+  padding-left: 0;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #555;
+}
+
+.hours-list li {
+  padding: 0.2rem 0;
 }
 
 @media (max-width: 600px) {

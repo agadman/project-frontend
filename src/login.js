@@ -15,11 +15,11 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),
       });
-      // Om förfrågan lyckas, lagra JWT-token i sessionStorage
+      // Om förfrågan lyckas, lagra JWT-token i localStorage
       const result = await res.json();
       if (res.ok) {
         const token = result.token;
-        sessionStorage.setItem('jwt', token); 
+        localStorage.setItem('jwt', token); 
         window.location.href = '/admin.html'; // Omdirigerar till admin sidan
       } else {
         document.getElementById('message').textContent = result.error || 'Fyll i användarnamn/lösenord';
