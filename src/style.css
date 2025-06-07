@@ -34,7 +34,7 @@ h2 {
   color: #2C3E50;
 }
 
-/**** HEADER ****/
+/**** GLOBAL - HEADER ****/
 .site-header {
   position: relative;
   height: 100vh;
@@ -79,7 +79,7 @@ h2 {
   font-size: 3rem;
 }
 
-/* FOOTER */
+/* GLOBAL - FOOTER */
 .site-footer {
   border-top: 2px solid #EFC07A;
   padding: 2rem 1rem;
@@ -123,7 +123,7 @@ address a {
   text-decoration: none;
 }
 
-/**** MENY/INDEX ****/
+/**** MENY (INDEX-SIDAN) ****/
 
 .menu-category {
   margin: 2rem 0;
@@ -185,7 +185,7 @@ button[type="submit"]:hover {
   background-color: #1A252F;
 }
 
-/**** ADMIN ****/
+/**** ADMIN (INLOGGAD) ****/
 .admin-page {
   max-width: 800px;
   margin: 2rem auto;
@@ -339,6 +339,7 @@ ul#menuList li.menu-item {
   padding: 0.2rem 0;
 }
 
+/**** RESPONSIVITET - MINDRE SKÄRMAR ****/
 @media (max-width: 600px) {
   .restaurant-name {
     font-size: 2.4rem;

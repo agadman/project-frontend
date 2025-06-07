@@ -1,16 +1,20 @@
-import API_URL from "./config.js";
+import API_URL from "./config.js"; // Importerar API-URL från en separat konfigurationsfil
 
+// Väntar tills hela sidan har laddats
 document.addEventListener("DOMContentLoaded", () => {
-  const token = localStorage.getItem("jwt");
+  const token = localStorage.getItem("jwt"); // Hämtar JWT-token från localStorage
+  // Referenser till olika element i DOM
   const menuList = document.getElementById("menuList");
   const form = document.getElementById("addForm");
   const logoutBtn = document.getElementById("logoutBtn");
 
+  // Om ingen token finns, skicka användaren till inloggningssidan
   if (!token) {
     window.location.href = "/login.html";
     return;
   }
 
+  // Om logga ut - ta bort token och gå till login-sidan
   if (logoutBtn) {
     logoutBtn.addEventListener("click", () => {
       localStorage.removeItem("jwt");
@@ -18,16 +22,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Funktion för att hämta menyn från API och visa den på sidan
   async function fetchMenu() {
     try {
       const res = await fetch(`${API_URL}/menu`);
       const items = await res.json();
-      menuList.innerHTML = "";
+      menuList.innerHTML = ""; // Töm listan först
 
       items.forEach((item) => {
+        // Skapar en li för varje menyobjekt
         const li = document.createElement("li");
         li.classList.add("menu-item");
 
+        // Skapar ett textblock för namn, kategori, pris och beskrivning
         const textWrapper = document.createElement("div");
         textWrapper.classList.add("menu-item-text");
         textWrapper.innerHTML = `
@@ -48,10 +55,11 @@ document.addEventListener("DOMContentLoaded", () => {
         deleteBtn.addEventListener("click", async () => {
           if (confirm(`Ta bort ${item.name}?`)) {
             await deleteItem(item._id);
-            fetchMenu();
+            fetchMenu(); // Uppdatera listan
           }
         });
 
+        // Lägg till text och knappar i listobjektet
         li.appendChild(textWrapper);
         li.appendChild(editBtn);
         li.appendChild(deleteBtn);
@@ -62,6 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // Funktion för att ta bort ett menyobjekt
   async function deleteItem(id) {
     try {
       await fetch(`${API_URL}/menu/${id}`, {
@@ -75,6 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // Funktion för att uppdatera ett menyobjekt
   async function updateItem(id, updatedData) {
     try {
       const res = await fetch(`${API_URL}/menu/${id}`, {
@@ -87,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       if (res.ok) {
-        fetchMenu();
+        fetchMenu(); // Laddar om listan efter uppdatering
       } else {
         const result = await res.json();
         alert(result.message || "Kunde inte uppdatera.");
@@ -97,6 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // Visar formulär för att redigera ett menyobjekt direkt i listan
   function showEditForm(item, li) {
     const formWrapper = document.createElement("div");
     formWrapper.classList.add("edit-form");
@@ -110,12 +121,13 @@ document.addEventListener("DOMContentLoaded", () => {
       <button class="cancel-btn">Avbryt</button>
     `;
 
-    li.innerHTML = ""; // Rensa li och lägg till formulär istället
-    li.appendChild(formWrapper);
+    li.innerHTML = ""; // Rensar li 
+    li.appendChild(formWrapper); // Lägger till formuläret i li
 
     const saveBtn = formWrapper.querySelector(".save-btn");
     const cancelBtn = formWrapper.querySelector(".cancel-btn");
 
+    // När användaren sparar
     saveBtn.addEventListener("click", () => {
       const name = formWrapper.querySelector(".name").value.trim();
       const category = formWrapper.querySelector(".category").value.trim();
@@ -129,30 +141,37 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
+    // Om användaren ångrar sig
     cancelBtn.addEventListener("click", () => {
-      fetchMenu(); // Återställer listan
+      fetchMenu(); // Laddar om listan igen
     });
   }
 
+  // Hanterar formulär för att lägga till ny rätt
   form.addEventListener("submit", async (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Stoppar sidan från att laddas om
+
+    // Hämtar värden från formuläret
     const name = document.getElementById("name").value.trim();
     const description = document.getElementById("description").value.trim();
     const price = document.getElementById("price").value;
     const category = document.getElementById("category").value;
 
+    // Kollar att alla fält är ifyllda
     const missingFields = [];
     if (!name) missingFields.push("namn");
     if (!description) missingFields.push("beskrivning");
     if (!price) missingFields.push("pris");
     if (!category) missingFields.push("kategori");
 
+    // Visar felmeddelande om något saknas
     if (missingFields.length > 0) {
       document.getElementById("form-message").textContent =
         "Följande fält saknas: " + missingFields.join(", ");
       return;
     }
 
+    // Skickar nytt menyobjekt till servern
     try {
       const res = await fetch(`${API_URL}/menu`, {
         method: "POST",
@@ -164,8 +183,8 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       if (res.ok) {
-        form.reset();
-        fetchMenu();
+        form.reset(); // Nollställar formuläret
+        fetchMenu(); // LAddar om menyn
       } else {
         const result = await res.json();
         alert(result.message || "Något gick fel");
@@ -175,5 +194,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  fetchMenu();
+  fetchMenu(); // Kör funktionen som hämtar och visar menyn
 });
