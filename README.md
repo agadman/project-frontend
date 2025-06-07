@@ -1,4 +1,4 @@
-## Frontend - Slutprojekt - Backend-baserad webbutveckling
+# Frontend - Slutprojekt - Backend-baserad webbutveckling
 Detta är frontend-delen för mitt slutprojekt inom kursen Backend-baserad webbutveckling vid Mittuniversitetet. Projektet är byggt med Vite, vanlig JavaScript, HTML och CSS. Frontend kommunicerar med ett REST-API för att visa och hantera menyinnehåll.
 
 URL: https://project-frontend-4niq.onrender.com/
